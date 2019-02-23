@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "main": "index.js",
+  "homepage": "https://jnasingleton.com",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "Jamie Singleton",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.9.2"
+  }
+}

@@ -1,0 +1,224 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+// BODY
+
+body {
+  @include background;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+// HEADER
+
+header {
+  //position: fixed;
+  width: 100%;
+}
+
+// MAIN
+
+/*
+//OPTION CSS GRID
+//! .projects grid
+#project-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+#projects-main {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+#project-2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+#project-3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+#project-4 {
+  grid-column: 3;
+  grid-row: 2;
+}
+*/
+
+.projects {
+  @extend .bordered;
+  /*
+  //OPTION CSS GRID
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  */
+  display: inline-flex;
+
+  .project {
+    @extend .bordered;
+    font-size: 2rem;
+    padding: 1rem 1rem;
+    margin-bottom: 3rem;
+
+    &-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &-btn-github {
+      @extend .btn;
+      background: darken($primary-color, 50);
+      color: #fff;
+      font-size: 2rem;
+      margin: 10px 5px;
+    }
+
+    &-btn-details {
+      @extend .btn;
+      background: lighten($primary-color, 50);
+      color: #111;
+      font-size: 2rem;
+      margin: 10px 5px;
+    }
+
+    // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+    // Ensures that a click anywhere on the element will fire events
+    &-btn-details > * {
+      pointer-events: none;
+    }
+
+    &-details {
+      background: lighten($primary-color, 60);
+      color: #111;
+      font-size: 1.25rem;
+      display: none;
+      &.displayed {
+        display: block;
+      }
+    }
+  }
+
+  &-1 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+    @include easeOut;
+    &.slide-in {
+      transform: translate3d(0, 0, 0);
+      opacity: 0.9;
+    }
+  }
+  &-2 {
+    width: 40%;
+  }
+  &-3 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    @include easeOut;
+    &.slide-in {
+      opacity: 0.9;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-2 {
+    @extend .bordered;
+    &-top {
+      @extend .bordered;
+      padding: 1rem 1rem;
+      text-align: center;
+
+      #projects-title {
+        @extend .bordered;
+        align-items: center;
+        padding: 0.5rem 0rem;
+        font-size: 4rem;
+      }
+      #projects-description {
+        @extend .bordered;
+        padding: 0.5rem 0rem;
+        font-size: 2rem;
+      }
+    }
+    &-bottom {
+      @extend .bordered;
+      padding: 1rem 1rem;
+
+      .skills {
+        @extend .bordered;
+        padding: 1rem 0rem;
+        font-size: 2rem;
+        text-align: center;
+        &-primary {
+          color: #fff;
+          font-size: 3rem;
+        }
+        &-secondary {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+// DESIGN
+
+.bordered {
+  border: 3px #fff solid;
+  //border-style: none;
+}
+
+// MOBILE
+
+@import "mobile";
