@@ -180,7 +180,19 @@ header {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
   */
-  display: inline-flex; }
+  display: inline-flex;
+  /*
+      opacity: 0;
+    @include easeOut;
+    &.slide-in {
+      transform: translate3d(0, 0, 0);
+      opacity: 0.9;
+    }
+    &.slide-out-then-in {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+  */ }
   .projects .project {
     font-size: 2rem;
     padding: 1rem 1rem;
@@ -211,25 +223,65 @@ header {
   .projects-1 {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0;
-    transition: all 1s ease-out; }
+    width: 30%; }
     .projects-1.slide-in {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9; }
+      animation: slide-in-from-right 2s; }
+    .projects-1.slide-out-then-in {
+      animation: slide-out-then-in-from-right 2s; }
   .projects-2 {
     width: 40%; }
   .projects-3 {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    transform: translate3d(100%, 0, 0);
-    opacity: 0;
-    transition: all 1s ease-out; }
+    width: 30%; }
     .projects-3.slide-in {
-      opacity: 0.9;
-      transform: translate3d(0, 0, 0); }
+      animation: slide-in-from-left 2s; }
+    .projects-3.slide-out-then-in {
+      animation: slide-out-then-in-from-left 2s; }
+
+@keyframes slide-in-from-right {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; } }
+
+@keyframes slide-in-from-left {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; } }
+
+@keyframes slide-out-then-in-from-right {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; }
+  41% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  51% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; } }
+
+@keyframes slide-out-then-in-from-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; }
+  41% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  51% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.9; } }
   .projects-2-top {
     padding: 1rem 1rem;
     text-align: center; }
@@ -253,7 +305,7 @@ header {
         color: #eece1a; }
 
 .bordered, .projects, .projects .project, .projects-2, .projects-2-top, .projects-2-top #projects-title, .projects-2-top #projects-description, .projects-2-bottom, .projects-2-bottom .skills {
-  border: 3px #fff solid; }
+  border-style: none; }
 
 @media screen and (min-width: 1171px) {
   /*
