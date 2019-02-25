@@ -1,3 +1,27 @@
+function changeWindowLocation(href) {
+  console.log(href);
+  window.location = href;
+}
+function animationEndEventName() {
+  var i,
+    undefined,
+    el = document.createElement("div"),
+    animations = {
+      animation: "animationend",
+      Oanimation: "oanimationend", // oanimationEnd in very old Opera
+      Mozanimation: "animationend",
+      Webkitanimation: "webkitanimationEnd"
+    };
+
+  for (i in animations) {
+    if (animations.hasOwnProperty(i) && el.style[i] !== undefined) {
+      return animations[i];
+    }
+  }
+
+  //TODO: throw 'animationEnd event is not supported in this browser';
+}
+
 document.addEventListener(
   "click",
   function(event) {
@@ -12,42 +36,39 @@ document.addEventListener(
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
     } else if (eventElement.matches(".job-title")) {
-      if (eventElement.matches(".job-title-chosen")) {
-        // Same job-title-chosen = do nothing
+      if (eventElement.matches(".job-title-current")) {
+        // Same job-title-current clicked
+        event.preventDefault();
       } else {
-        // Switch job-title-chosen
-        const jobTitleChosenElement = document.querySelector(
-          ".job-title-chosen"
+        // New job-title-current clicked
+        const jobTitleCurrentElement = document.querySelector(
+          ".job-title-current"
         );
-        if (jobTitleChosenElement) {
-          jobTitleChosenElement.classList.remove("job-title-chosen");
-        }
-        eventElement.classList.add("job-title-chosen");
-        // Check if the sidebars have .slide-in
-        const sidebarElements = document.querySelectorAll(".sidebar");
-        if (document.querySelector(".sidebar.slide-in")) {
+        // jobTitleCurrentElement ==> sidebar elements and projects-2 element exists
+        if (jobTitleCurrentElement) {
+          event.preventDefault();
           // Existing sidebars to slide out
+          const sidebarElements = document.querySelectorAll(".sidebar");
           sidebarElements.forEach(e => {
             e.classList.remove("slide-in");
-            e.classList.add("slide-out-then-in");
+            e.classList.add("slide-out");
           });
-        } else {
-          // New sidebars to slide in
-          sidebarElements.forEach(e => {
-            e.classList.remove("slide-out-then-in");
-            e.classList.add("slide-in");
-          });
+          // Existing center element to fade out
+          const centerElement = document.querySelector(".projects-2");
+          centerElement.classList.remove("fade-in");
+          centerElement.classList.add("fade-out");
+          // Open next webpage once centerElement finishes its animation
+          var animationEnd = animationEndEventName();
+          animationEnd &&
+            centerElement.addEventListener(
+              animationEnd,
+              function() {
+                console.log(eventElement.href);
+                window.location = eventElement.href;
+              },
+              false
+            );
         }
-
-        // HAVE SIDEBARS SLIDE IN?
-        //  THEN SLIDE OUT, LOAD, SLIDE IN
-        // Slide Out
-        // Load
-        // Slide In
-        /*
-        sidebarElements.forEach(e => {
-          e.classList.toggle("slide-in");
-        }); */
       }
     }
   },

@@ -149,37 +149,7 @@ body {
 header {
   width: 100%; }
 
-/*
-//OPTION CSS GRID
-//! .projects grid
-#project-1 {
-  grid-column: 1;
-  grid-row: 1;
-}
-#projects-main {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-#project-2 {
-  grid-column: 3;
-  grid-row: 1;
-}
-#project-3 {
-  grid-column: 1;
-  grid-row: 2;
-}
-#project-4 {
-  grid-column: 3;
-  grid-row: 2;
-}
-*/
 .projects {
-  /*
-  //OPTION CSS GRID
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-  */
   display: inline-flex;
   /*
       opacity: 0;
@@ -223,21 +193,48 @@ header {
   .projects-1 {
     display: flex;
     flex-direction: column;
-    width: 30%; }
+    width: 30%;
+    opacity: 0; }
     .projects-1.slide-in {
-      animation: slide-in-from-right 2s; }
-    .projects-1.slide-out-then-in {
-      animation: slide-out-then-in-from-right 2s; }
+      animation: slide-in-from-right 1.5s;
+      animation-fill-mode: forwards; }
+    .projects-1.slide-out {
+      animation: slide-out-from-right 1.5s;
+      animation-fill-mode: forwards; }
   .projects-2 {
-    width: 40%; }
+    width: 40%;
+    opacity: 0; }
+    .projects-2.fade-in {
+      animation: fade-in 2s;
+      animation-fill-mode: forwards; }
+    .projects-2.fade-out {
+      animation: fade-out 1s;
+      animation-fill-mode: forwards; }
   .projects-3 {
     display: flex;
     flex-direction: column;
-    width: 30%; }
+    width: 30%;
+    opacity: 0; }
     .projects-3.slide-in {
-      animation: slide-in-from-left 2s; }
-    .projects-3.slide-out-then-in {
-      animation: slide-out-then-in-from-left 2s; }
+      animation: slide-in-from-left 1s;
+      animation-fill-mode: forwards; }
+    .projects-3.slide-out {
+      animation: slide-out-from-left 1s;
+      animation-fill-mode: forwards; }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 @keyframes slide-in-from-right {
   0% {
@@ -255,33 +252,21 @@ header {
     transform: translate3d(0, 0, 0);
     opacity: 0.9; } }
 
-@keyframes slide-out-then-in-from-right {
+@keyframes slide-out-from-right {
   0% {
     transform: translate3d(0, 0, 0);
     opacity: 0.9; }
-  41% {
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0; }
-  51% {
-    transform: translate3d(100%, 0, 0);
-    opacity: 0; }
   100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.9; } }
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0; } }
 
-@keyframes slide-out-then-in-from-left {
+@keyframes slide-out-from-left {
   0% {
     transform: translate3d(0, 0, 0);
     opacity: 0.9; }
-  41% {
-    transform: translate3d(100%, 0, 0);
-    opacity: 0; }
-  51% {
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0; }
   100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.9; } }
+    transform: translate3d(100%, 0, 0);
+    opacity: 0; } }
   .projects-2-top {
     padding: 1rem 1rem;
     text-align: center; }
