@@ -146,23 +146,21 @@ body {
       z-index: -1;
       background: rgba(68, 68, 68, 0.9); }
 
-header {
+.job-titles {
+  display: inline-flex;
+  font-size: 2rem;
+  text-align: center;
   width: 100%; }
+  .job-titles-1 {
+    width: 33%; }
+  .job-titles-2 {
+    width: 34%; }
+  .job-titles-3 {
+    width: 33%; }
 
 .projects {
   display: inline-flex;
-  /*
-      opacity: 0;
-    @include easeOut;
-    &.slide-in {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-    &.slide-out-then-in {
-      opacity: 0;
-      transform: translate3d(-100%, 0, 0);
-    }
-  */ }
+  width: 100%; }
   .projects .project {
     font-size: 2rem;
     padding: 1rem 1rem;
@@ -196,20 +194,24 @@ header {
     width: 30%;
     opacity: 0; }
     .projects-1.slide-in {
-      animation: slide-in-from-right 1.5s;
-      animation-fill-mode: forwards; }
+      animation: slide-in-from-right 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out; }
     .projects-1.slide-out {
-      animation: slide-out-from-right 1.5s;
-      animation-fill-mode: forwards; }
+      animation: slide-out-from-right 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in; }
   .projects-2 {
     width: 40%;
     opacity: 0; }
     .projects-2.fade-in {
       animation: fade-in 2s;
-      animation-fill-mode: forwards; }
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out; }
     .projects-2.fade-out {
       animation: fade-out 1s;
-      animation-fill-mode: forwards; }
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in; }
   .projects-3 {
     display: flex;
     flex-direction: column;
@@ -217,10 +219,12 @@ header {
     opacity: 0; }
     .projects-3.slide-in {
       animation: slide-in-from-left 1s;
-      animation-fill-mode: forwards; }
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out; }
     .projects-3.slide-out {
       animation: slide-out-from-left 1s;
-      animation-fill-mode: forwards; }
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in; }
 
 @keyframes fade-in {
   0% {
@@ -289,7 +293,10 @@ header {
       .projects-2-bottom .skills-secondary {
         color: #eece1a; }
 
-.bordered, .projects, .projects .project, .projects-2, .projects-2-top, .projects-2-top #projects-title, .projects-2-top #projects-description, .projects-2-bottom, .projects-2-bottom .skills {
+.about-me {
+  text-align: center; }
+
+.bordered, .job-titles, .projects, .projects .project, .projects-2, .projects-2-top, .projects-2-top #projects-title, .projects-2-top #projects-description, .projects-2-bottom, .projects-2-bottom .skills {
   border-style: none; }
 
 @media screen and (min-width: 1171px) {

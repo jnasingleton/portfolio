@@ -57,16 +57,30 @@ body {
 
 // HEADER
 
-header {
-  //position: fixed;
+.job-titles {
+  @extend .bordered;
+  display: inline-flex;
+  font-size: 2rem;
+  text-align: center;
   width: 100%;
+  &-1 {
+    width: 33%;
+  }
+  &-2 {
+    width: 34%;
+  }
+  &-3 {
+    width: 33%;
+  }
 }
+// Fix not clickable
 
 // MAIN
 
 .projects {
   @extend .bordered;
   display: inline-flex;
+  width: 100%;
 
   .project {
     @extend .bordered;
@@ -112,32 +126,20 @@ header {
       }
     }
   }
-
-  /*
-      opacity: 0;
-    @include easeOut;
-    &.slide-in {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-    &.slide-out-then-in {
-      opacity: 0;
-      transform: translate3d(-100%, 0, 0);
-    }
-  */
-
   &-1 {
     display: flex;
     flex-direction: column;
     width: 30%;
     opacity: 0;
     &.slide-in {
-      animation: slide-in-from-right 1.5s;
+      animation: slide-in-from-right 1s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
     }
     &.slide-out {
-      animation: slide-out-from-right 1.5s;
+      animation: slide-out-from-right 1s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
     }
   }
   &-2 {
@@ -146,10 +148,12 @@ header {
     &.fade-in {
       animation: fade-in 2s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
     }
     &.fade-out {
       animation: fade-out 1s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
     }
   }
   &-3 {
@@ -160,10 +164,12 @@ header {
     &.slide-in {
       animation: slide-in-from-left 1s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
     }
     &.slide-out {
       animation: slide-out-from-left 1s;
       animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
     }
   }
   @keyframes fade-in {
@@ -267,6 +273,10 @@ header {
       }
     }
   }
+}
+
+.about-me {
+  text-align: center;
 }
 
 // DESIGN
