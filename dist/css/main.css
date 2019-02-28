@@ -90,141 +90,17 @@
 .nav-item:nth-child(4) {
   transition-delay: 0.4s; }
 
-* {
-  box-sizing: border-box; }
+@keyframes fade-in-partial {
+  0% {
+    opacity: 0.6; }
+  100% {
+    opacity: 1; } }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-weight: 400; }
-  h1.lg-heading,
-  h2.lg-heading,
-  h3.lg-heading {
-    font-size: 6rem; }
-  h1.sm-heading,
-  h2.sm-heading,
-  h3.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(73, 73, 73, 0.5); }
-
-a {
-  color: #fff;
-  text-decoration: none; }
-
-.text-secondary {
-  color: #eece1a; }
-
-.btn, .projects .project-btn-github, .projects .project-btn-details {
-  display: block;
-  padding: 0.5rem 1rem;
-  border: 0;
-  margin-bottom: 0.3rem; }
-  .btn:hover, .projects .project-btn-github:hover, .projects .project-btn-details:hover {
-    background: #eece1a;
-    color: #000; }
-
-body {
-  background: #444;
-  color: #fff;
-  height: 100%;
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5; }
-  body#bg-img {
-    background: url(../img/background.jpg);
-    background-attachment: fixed;
-    background-size: cover; }
-    body#bg-img:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: rgba(68, 68, 68, 0.9); }
-
-.job-titles {
-  display: inline-flex;
-  font-size: 2rem;
-  text-align: center;
-  width: 100%; }
-  .job-titles-1 {
-    width: 33%; }
-  .job-titles-2 {
-    width: 34%; }
-  .job-titles-3 {
-    width: 33%; }
-
-.projects {
-  display: inline-flex;
-  width: 100%; }
-  .projects .project {
-    font-size: 2rem;
-    padding: 1rem 1rem;
-    margin-bottom: 3rem; }
-    .projects .project-img {
-      display: block;
-      max-width: 100%;
-      height: auto; }
-    .projects .project-btn-github {
-      background: black;
-      color: #fff;
-      font-size: 2rem;
-      margin: 10px 5px; }
-    .projects .project-btn-details {
-      background: #c4c4c4;
-      color: #111;
-      font-size: 2rem;
-      margin: 10px 5px; }
-    .projects .project-btn-details > * {
-      pointer-events: none; }
-    .projects .project-details {
-      background: #dddddd;
-      color: #111;
-      font-size: 1.25rem;
-      display: none; }
-      .projects .project-details.displayed {
-        display: block; }
-  .projects-1 {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    opacity: 0; }
-    .projects-1.slide-in {
-      animation: slide-in-from-right 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out; }
-    .projects-1.slide-out {
-      animation: slide-out-from-right 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in; }
-  .projects-2 {
-    width: 40%;
-    opacity: 0; }
-    .projects-2.fade-in {
-      animation: fade-in 2s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out; }
-    .projects-2.fade-out {
-      animation: fade-out 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in; }
-  .projects-3 {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    opacity: 0; }
-    .projects-3.slide-in {
-      animation: slide-in-from-left 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out; }
-    .projects-3.slide-out {
-      animation: slide-out-from-left 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in; }
+@keyframes fade-out-partial {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0.6; } }
 
 @keyframes fade-in {
   0% {
@@ -271,32 +147,164 @@ body {
   100% {
     transform: translate3d(100%, 0, 0);
     opacity: 0; } }
-  .projects-2-top {
-    padding: 1rem 1rem;
-    text-align: center; }
-    .projects-2-top #projects-title {
-      align-items: center;
-      padding: 0.5rem 0rem;
-      font-size: 4rem; }
-    .projects-2-top #projects-description {
-      padding: 0.5rem 0rem;
-      font-size: 2rem; }
-  .projects-2-bottom {
-    padding: 1rem 1rem; }
-    .projects-2-bottom .skills {
-      padding: 1rem 0rem;
-      font-size: 2rem;
-      text-align: center; }
-      .projects-2-bottom .skills-primary {
-        color: #fff;
-        font-size: 3rem; }
-      .projects-2-bottom .skills-secondary {
-        color: #eece1a; }
 
-.about-me {
+* {
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+.text-secondary {
+  color: #eece1a; }
+
+.btn, main .projects .project-btn-github, main .projects .project-btn-details {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 10px 0px; }
+  .btn:hover, main .projects .project-btn-github:hover, main .projects .project-btn-details:hover {
+    background: #eece1a;
+    color: #000; }
+
+body {
+  background: #444;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5; }
+  body#bg-img {
+    background: url(../img/background.jpg);
+    background-attachment: fixed;
+    background-size: cover; }
+    body#bg-img:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(68, 68, 68, 0.9); }
+
+header {
   text-align: center; }
+  header .name {
+    font-size: 4rem;
+    padding: 1rem; }
+  header .about-me-link {
+    font-size: 3rem;
+    padding: 1rem; }
+  header .job-titles {
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0.5rem;
+    border-bottom: 3px #fff solid; }
+    header .job-titles .job-title {
+      opacity: 1;
+      width: 15%; }
+      header .job-titles .job-title#about-me-title {
+        font-size: 3rem;
+        justify-content: baseline; }
+      header .job-titles .job-title.job-title-current {
+        animation: fade-out-partial 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out; }
+      header .job-titles .job-title.fade-in-partial {
+        animation: fade-in-partial 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in; }
 
-.bordered, .job-titles, .projects, .projects .project, .projects-2, .projects-2-top, .projects-2-top #projects-title, .projects-2-top #projects-description, .projects-2-bottom, .projects-2-bottom .skills {
+main {
+  font-size: 2rem; }
+  main .projects {
+    display: flex; }
+    main .projects .project {
+      padding: 1rem 1rem;
+      margin-bottom: 3rem; }
+      main .projects .project-img {
+        display: block;
+        max-width: 100%;
+        height: auto; }
+      main .projects .project-btn-github {
+        background: black;
+        color: #fff;
+        margin: 10px 0px; }
+      main .projects .project-btn-details {
+        background: #dddddd;
+        color: #111;
+        margin: 10px 0px; }
+      main .projects .project-btn-details > * {
+        pointer-events: none; }
+      main .projects .project-details {
+        background: #dddddd;
+        color: #111;
+        font-size: 1.5rem;
+        display: none; }
+        main .projects .project-details.displayed {
+          display: block; }
+    main .projects-1 {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      opacity: 0; }
+      main .projects-1.slide-in {
+        animation: slide-in-from-right 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out; }
+      main .projects-1.slide-out {
+        animation: slide-out-from-right 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in; }
+    main .projects-2 {
+      width: 40%;
+      opacity: 0; }
+      main .projects-2.fade-in {
+        animation: fade-in 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out; }
+      main .projects-2.fade-out {
+        animation: fade-out 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in; }
+    main .projects-3 {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      opacity: 0; }
+      main .projects-3.slide-in {
+        animation: slide-in-from-left 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out; }
+      main .projects-3.slide-out {
+        animation: slide-out-from-left 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in; }
+    main .projects-2-top {
+      padding: 1rem 1rem;
+      text-align: center; }
+      main .projects-2-top #projects-title {
+        align-items: center;
+        padding: 0.5rem 0rem;
+        font-size: 3rem; }
+      main .projects-2-top #projects-description {
+        padding: 0.5rem 0rem; }
+    main .projects-2-bottom {
+      padding: 1rem 1rem; }
+      main .projects-2-bottom .skills {
+        padding: 1rem 0rem;
+        text-align: center; }
+        main .projects-2-bottom .skills-primary {
+          color: #fff;
+          font-size: 3rem; }
+        main .projects-2-bottom .skills-secondary {
+          color: #eece1a; }
+  main .about-me {
+    text-align: center; }
+
+.bordered {
   border-style: none; }
 
 @media screen and (min-width: 1171px) {

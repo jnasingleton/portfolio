@@ -1,31 +1,14 @@
 @import "config";
 @import "menu";
+@import "keyframes";
 
 * {
   box-sizing: border-box;
 }
 
-// Headings
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-weight: 400;
-
-  &.lg-heading {
-    font-size: 6rem;
-  }
-
-  &.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(lighten($primary-color, 2), 0.5);
-  }
-}
-
 a {
-  color: #fff;
   text-decoration: none;
+  color: #fff;
 }
 
 .text-secondary {
@@ -35,8 +18,7 @@ a {
 .btn {
   display: block;
   padding: 0.5rem 1rem;
-  border: 0;
-  margin-bottom: 0.3rem;
+  margin: 10px 0px;
   &:hover {
     background: $secondary-color;
     color: set-text-color($secondary-color);
@@ -57,231 +39,180 @@ body {
 
 // HEADER
 
-.job-titles {
-  @extend .bordered;
-  display: inline-flex;
-  font-size: 2rem;
+header {
   text-align: center;
-  width: 100%;
-  &-1 {
-    width: 33%;
+  .name {
+    font-size: 4rem;
+    padding: 1rem;
   }
-  &-2 {
-    width: 34%;
+  .about-me-link {
+    font-size: 3rem;
+    padding: 1rem;
   }
-  &-3 {
-    width: 33%;
+  .job-titles {
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0.5rem;
+    border-bottom: 3px #fff solid;
+    .job-title {
+      opacity: 1;
+      width: 15%;
+      &#about-me-title {
+        font-size: 3rem;
+        justify-content: baseline;
+      }
+      //job-title-current acts as a complement to the fade-in-partial class
+      &.job-title-current {
+        animation: fade-out-partial 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+      }
+      &.fade-in-partial {
+        animation: fade-in-partial 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+    }
   }
 }
-// Fix not clickable
 
 // MAIN
+main {
+  font-size: 2rem;
+  .projects {
+    display: flex;
 
-.projects {
-  @extend .bordered;
-  display: inline-flex;
-  width: 100%;
+    .project {
+      padding: 1rem 1rem;
+      margin-bottom: 3rem;
 
-  .project {
-    @extend .bordered;
-    font-size: 2rem;
-    padding: 1rem 1rem;
-    margin-bottom: 3rem;
-
-    &-img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    &-btn-github {
-      @extend .btn;
-      background: darken($primary-color, 50);
-      color: #fff;
-      font-size: 2rem;
-      margin: 10px 5px;
-    }
-
-    &-btn-details {
-      @extend .btn;
-      background: lighten($primary-color, 50);
-      color: #111;
-      font-size: 2rem;
-      margin: 10px 5px;
-    }
-
-    // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
-    // Ensures that a click anywhere on the element will fire events
-    &-btn-details > * {
-      pointer-events: none;
-    }
-
-    &-details {
-      background: lighten($primary-color, 60);
-      color: #111;
-      font-size: 1.25rem;
-      display: none;
-      &.displayed {
+      &-img {
         display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      &-btn-github {
+        @extend .btn;
+        background: darken($primary-color, 60);
+        color: #fff;
+        margin: 10px 0px;
+      }
+
+      &-btn-details {
+        @extend .btn;
+        background: lighten($primary-color, 60);
+        color: #111;
+        margin: 10px 0px;
+      }
+
+      // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+      // Ensures that a click anywhere on the element will fire events
+      &-btn-details > * {
+        pointer-events: none;
+      }
+
+      &-details {
+        background: lighten($primary-color, 60);
+        color: #111;
+        font-size: 1.5rem;
+        display: none;
+        &.displayed {
+          display: block;
+        }
       }
     }
-  }
-  &-1 {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    opacity: 0;
-    &.slide-in {
-      animation: slide-in-from-right 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out;
-    }
-    &.slide-out {
-      animation: slide-out-from-right 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in;
-    }
-  }
-  &-2 {
-    width: 40%;
-    opacity: 0;
-    &.fade-in {
-      animation: fade-in 2s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out;
-    }
-    &.fade-out {
-      animation: fade-out 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in;
-    }
-  }
-  &-3 {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    opacity: 0;
-    &.slide-in {
-      animation: slide-in-from-left 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out;
-    }
-    &.slide-out {
-      animation: slide-out-from-left 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in;
-    }
-  }
-  @keyframes fade-in {
-    0% {
+    &-1 {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
       opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    //50% {
-    //  opacity: 1;
-    //}
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes slide-in-from-right {
-    0% {
-      transform: translate3d(100%, 0, 0);
-      opacity: 0;
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-  }
-  @keyframes slide-in-from-left {
-    0% {
-      transform: translate3d(-100%, 0, 0);
-      opacity: 0;
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-  }
-  @keyframes slide-out-from-right {
-    0% {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translate3d(-100%, 0, 0);
-      opacity: 0;
-    }
-  }
-  @keyframes slide-out-from-left {
-    0% {
-      transform: translate3d(0, 0, 0);
-      opacity: 0.9;
-    }
-    100% {
-      transform: translate3d(100%, 0, 0);
-      opacity: 0;
-    }
-  }
-
-  &-2 {
-    @extend .bordered;
-    &-top {
-      @extend .bordered;
-      padding: 1rem 1rem;
-      text-align: center;
-
-      #projects-title {
-        @extend .bordered;
-        align-items: center;
-        padding: 0.5rem 0rem;
-        font-size: 4rem;
+      &.slide-in {
+        animation: slide-in-from-right 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
       }
-      #projects-description {
-        @extend .bordered;
-        padding: 0.5rem 0rem;
-        font-size: 2rem;
+      &.slide-out {
+        animation: slide-out-from-right 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
       }
     }
-    &-bottom {
-      @extend .bordered;
-      padding: 1rem 1rem;
+    &-2 {
+      width: 40%;
+      opacity: 0;
+      &.fade-in {
+        animation: fade-in 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+      }
+      &.fade-out {
+        animation: fade-out 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+    }
+    &-3 {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      opacity: 0;
+      &.slide-in {
+        animation: slide-in-from-left 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+      }
+      &.slide-out {
+        animation: slide-out-from-left 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+      }
+    }
 
-      .skills {
-        @extend .bordered;
-        padding: 1rem 0rem;
-        font-size: 2rem;
+    &-2 {
+      &-top {
+        padding: 1rem 1rem;
         text-align: center;
-        &-primary {
-          color: #fff;
+
+        #projects-title {
+          align-items: center;
+          padding: 0.5rem 0rem;
           font-size: 3rem;
         }
-        &-secondary {
-          color: $secondary-color;
+        #projects-description {
+          padding: 0.5rem 0rem;
+        }
+      }
+      &-bottom {
+        padding: 1rem 1rem;
+
+        .skills {
+          padding: 1rem 0rem;
+          text-align: center;
+          &-primary {
+            color: #fff;
+            font-size: 3rem;
+          }
+          &-secondary {
+            color: $secondary-color;
+          }
         }
       }
     }
   }
-}
 
-.about-me {
-  text-align: center;
+  .about-me {
+    text-align: center;
+    //width: 100%;
+  }
 }
 
 // DESIGN
 
 .bordered {
+  //@extend .bordered;
   //border: 3px #fff solid;
   border-style: none;
 }

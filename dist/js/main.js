@@ -35,7 +35,10 @@ document.addEventListener(
       eyeElement = eventElement.children[0];
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
-    } else if (eventElement.matches(".job-title")) {
+    } else if (
+      eventElement.matches(".job-title") ||
+      eventElement.matches("#about-me-title")
+    ) {
       if (eventElement.matches(".job-title-current")) {
         // Same job-title-current clicked
         event.preventDefault();
@@ -47,6 +50,9 @@ document.addEventListener(
         // jobTitleCurrentElement ==> sidebar elements and projects-2 element exists
         if (jobTitleCurrentElement) {
           event.preventDefault();
+          // Existing job title link to fade in
+          jobTitleCurrentElement.classList.remove("job-title-current");
+          jobTitleCurrentElement.classList.add("fade-in-partial");
           // Existing sidebars to slide out
           const sidebarElements = document.querySelectorAll(".sidebar");
           sidebarElements.forEach(e => {
