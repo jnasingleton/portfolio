@@ -36,60 +36,61 @@ document.addEventListener(
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
     } else if (eventElement.matches(".job-title")) {
+      const jobTitleCurrentElement = document.querySelector(
+        ".job-title-current"
+      );
+
+      // Same job-title-current clicked
       if (eventElement.matches(".job-title-current")) {
-        // Same job-title-current clicked
         event.preventDefault();
-      } else {
-        // New job-title-current clicked
-        const jobTitleCurrentElement = document.querySelector(
-          ".job-title-current"
-        );
-        // jobTitleCurrentElement ==> sidebar elements and projects-2 element exists
-        // !jobTitleCurrentElement ==> about-me element exists
-        if (jobTitleCurrentElement) {
-          event.preventDefault();
-          // Existing job title link to fade in
-          jobTitleCurrentElement.classList.remove("job-title-current");
-          jobTitleCurrentElement.classList.add("fade-in-partial");
-          // Existing sidebars to slide out
-          const sidebarElements = document.querySelectorAll(".sidebar");
-          sidebarElements.forEach(e => {
-            e.classList.remove("slide-in");
-            e.classList.add("slide-out");
-          });
-          // Existing center element to fade out
-          const centerElement = document.querySelector(".projects-2");
-          centerElement.classList.remove("fade-in");
-          centerElement.classList.add("fade-out");
-          // Open next webpage once centerElement finishes its animation
-          var animationEnd = animationEndEventName();
-          animationEnd &&
-            centerElement.addEventListener(
-              animationEnd,
-              function() {
-                console.log(eventElement.href);
-                window.location = eventElement.href;
-              },
-              false
-            );
-        } else {
-          event.preventDefault();
-          // Existing About Me element to fade out
-          const aboutMeElement = document.querySelector(".about-me");
-          aboutMeElement.classList.remove("fade-in");
-          aboutMeElement.classList.add("fade-out");
-          // Open next webpage once centerElement finishes its animation
-          var animationEnd = animationEndEventName();
-          animationEnd &&
-            aboutMeElement.addEventListener(
-              animationEnd,
-              function() {
-                console.log(eventElement.href);
-                window.location = eventElement.href;
-              },
-              false
-            );
-        }
+        // New job-title clicked and currently not on about-me-title
+        // ==> sidebar elements and projects-2 element exist
+      } else if (!jobTitleCurrentElement.matches("#about-me-title")) {
+        event.preventDefault();
+        // Existing job title link to fade in
+        jobTitleCurrentElement.classList.remove("job-title-current");
+        jobTitleCurrentElement.classList.add("fade-in-partial");
+        // Existing sidebars to slide out
+        const sidebarElements = document.querySelectorAll(".sidebar");
+        sidebarElements.forEach(e => {
+          e.classList.remove("slide-in");
+          e.classList.add("slide-out");
+        });
+        // Existing center element to fade out
+        const centerElement = document.querySelector(".projects-2");
+        centerElement.classList.remove("fade-in");
+        centerElement.classList.add("fade-out");
+        // Open next webpage once centerElement finishes its animation
+        var animationEnd = animationEndEventName();
+        animationEnd &&
+          centerElement.addEventListener(
+            animationEnd,
+            function() {
+              window.location = eventElement.href;
+            },
+            false
+          );
+      } else if (jobTitleCurrentElement.matches("#about-me-title")) {
+        // New job-title clicked and currently on about-me-title
+        // ==> center element exists
+        event.preventDefault();
+        // Existing job title link to fade in
+        jobTitleCurrentElement.classList.remove("job-title-current");
+        jobTitleCurrentElement.classList.add("fade-in-partial");
+        // Existing About Me element to fade out
+        const aboutMeElement = document.querySelector(".about-me");
+        aboutMeElement.classList.remove("fade-in");
+        aboutMeElement.classList.add("fade-out");
+        // Open next webpage once centerElement finishes its animation
+        var animationEnd = animationEndEventName();
+        animationEnd &&
+          aboutMeElement.addEventListener(
+            animationEnd,
+            function() {
+              window.location = eventElement.href;
+            },
+            false
+          );
       }
     }
   },

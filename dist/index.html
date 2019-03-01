@@ -13,25 +13,31 @@
     <link rel="stylesheet" href="css/main.css" />
     <title>Jamie Singleton's Portfolio</title>
   </head>
-  <body id="bg-img">
+  <body>
     <header>
       <div class="name">
         Jamie Singleton
       </div>
       <nav class="icon-set">
-          <a target="_blank" href="#" id="resume"><i class="fas fa-file"></i></a>
-          <a target="_blank" href="https://github.com/jnasingleton" id="github"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a target="_blank" href="mailto:jamie@jnasingleton.com" id="email"
-            ><i class="fas fa-envelope"></i
-          ></a>
-        </nav>
+        <a target="_blank" href="docs/Jamie_Singleton_Resume.pdf" id="resume"
+          ><i class="fas fa-file"></i
+        ></a>
+        <a target="_blank" href="https://github.com/jnasingleton" id="github"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a target="_blank" href="mailto:jamie@jnasingleton.com" id="email"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </nav>
       <nav class="job-titles">
         <a href="data-scientist.html" id="job-title-1" class="job-title">
           Data Scientist
         </a>
-        <a href="index.html" id="about-me-title" class="job-title job-title-current">
+        <a
+          href="index.html"
+          id="about-me-title"
+          class="job-title job-title-current"
+        >
           About Me
         </a>
         <a href="web-developer.html" id="job-title-2" class="job-title">
@@ -41,24 +47,55 @@
     </header>
 
     <main>
-      <div class="about-me fade-in">
-        <div class="about-me-details">
-          <h3>Welcome to my portfolio website!</h3>
-          <p>
-            I'm a data analyst / data scientist as well as an aspiring full-stack web developer.
-          </p>
-          <ul class="goal-details"></ul>
-            I enjoy designing and developing...
-            <li>
-              Web applications that focus on providing a user-friendly data analytics front end
-            </li>
-            <li>
-              Data science pipelines related to processing large amounts of data using powerful machine learning libraries
-            </li>
-          </ul>
-          <ul class="work-details">
-              <a href="insights3.ca" class="insights3">Insights3</a>
-               -- Data Analyst Consultant
+      <div class="about-me-container">
+        <div class="about-me fade-in">
+          <div class="about-me-topsection">
+            <div class="about-me-welcome">
+              Welcome to my Portfolio!
+            </div>
+            <div class="about-me-summary">
+              I'm a Toronto-based data analyst / data scientist, as well as an
+              aspiring full-stack web developer.
+            </div>
+          </div>
+          <div class="about-me-bottomsection">
+            <ul class="about-me-section">
+              <span class="about-me-header"
+                ><span class="about-me-header-bold">
+                  <a
+                    target="_blank"
+                    href="https://github.com/jnasingleton"
+                    class="github"
+                    >Projects I Enjoy</a
+                  >
+                </span></span
+              >
+              <li>
+                Building end-to-end data science pipelines that process large
+                amounts of data by leveraging powerful machine learning
+                libraries
+              </li>
+              <li>
+                Creating data visualizations and summary reports that extract
+                and explain key findings from technical data science projects
+              </li>
+              <li>
+                Designing and developing web applications that provide data
+                analysis and database managment capabilities to the users.
+              </li>
+            </ul>
+            <ul class="about-me-section">
+              <span class="about-me-header"
+                ><span class="about-me-header-bold"
+                  ><a
+                    target="_blank"
+                    href="https://smartdash.solutions/"
+                    class="insights3"
+                    >Insights3</a
+                  >
+                </span>
+                -- Data Analyst Consultant
+              </span>
               <li>
                 Analyzing and tracking doctor prescription volumes, brand market
                 shares, and detailed compensation plans
@@ -68,34 +105,41 @@
                 and project management tracking
               </li>
             </ul>
-          <ul class="education-details">
-            McMaster University  --  Honours BSc. Math and Stats Co-op<br>
-            <li>Strong mathematics/statistics foundation</li>
-            <li>
-              Co-op positions in data analysis roles at: Apotex, CIBC, and Hydro
-              One Networks
-            </li>
-          </ul>   
+            <ul class="about-me-section">
+              <span class="about-me-header"
+                ><span class="about-me-header-bold"
+                  ><a
+                    target="_blank"
+                    href="https://www.mcmaster.ca/"
+                    class="mcmaster"
+                    >McMaster University</a
+                  ></span
+                >
+                -- Honours BSc. Math and Stats Co-op
+              </span>
+              <li>Strong mathematics/statistics foundation</li>
+              <li>
+                Co-op positions in data analysis roles at: Apotex, CIBC, and
+                Hydro One Networks
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
 
     <!-- 
       -  job-title-current
-      -  Remove main section below for index.html
-      -  Populate main sections for all pages
-
-    FIX RESUME LINK IN HEADER
-    FIX ABOUT SECTION
-    LOAD PROJECT DETAILS (DB + API) OR KEEP STATIC
-    GITHUB LINKS 
-    ADJUST FORMATTING/COLOUR CHOICES (Primary/Secondary Colors, Ease-In/Out, Browser Specific Animations/Transitions)
+      -  <main>
+    
+    MOBILE
+    LOADABLE PROJECT DETAILS (DB + API)
+    STATIC PROJECT DETAILS (GITHUB)
+    ADJUST FORMATTING/SIZING/COLOUR CHOICES (Primary/Secondary Colors, Ease-In/Out, Browser Specific Animations/Transitions)
     POPULATE KNOW/LEARNING WITH LINKS OR HOVER OVER INFO FOR EACH ITEM?
-    FIX WIDTHS BETWEEN INDEX and OTHERS
-    - LOAD SHIFTS the total width so a small adjust in using jobtitles, can fix?
-    - Set width for original to a certain value?
-    REMOVE DEBUGGING BORDERS
-    hover over, tell him this is resume, this is my email jamie@jnasingoent.com
+    Fix entire width change - causes juttering
+    hover over, tell him this is resume, this is my email jamie@jnasingoent.com - tool tip
+    bold = link (though other alternatives)
     -->
 
     <footer></footer>
