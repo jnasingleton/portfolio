@@ -191,7 +191,10 @@ header {
   text-align: center; }
   header .name {
     font-size: 4rem;
-    padding: 1rem; }
+    margin-top: 1rem; }
+  header .icon-set {
+    font-size: 3rem;
+    margin: 0 0; }
   header .about-me-link {
     font-size: 3rem;
     padding: 1rem; }
@@ -302,10 +305,19 @@ main {
         main .projects-2-bottom .skills-secondary {
           color: #eece1a; }
   main .about-me {
-    text-align: center; }
+    text-align: center;
+    opacity: 0; }
+    main .about-me.fade-in {
+      animation: fade-in 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out; }
+    main .about-me.fade-out {
+      animation: fade-out 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in; }
 
 .bordered {
-  border-style: none; }
+  border: 3px #fff solid; }
 
 @media screen and (min-width: 1171px) {
   /*

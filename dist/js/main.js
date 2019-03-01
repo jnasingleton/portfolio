@@ -35,10 +35,7 @@ document.addEventListener(
       eyeElement = eventElement.children[0];
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
-    } else if (
-      eventElement.matches(".job-title") ||
-      eventElement.matches("#about-me-title")
-    ) {
+    } else if (eventElement.matches(".job-title")) {
       if (eventElement.matches(".job-title-current")) {
         // Same job-title-current clicked
         event.preventDefault();
@@ -48,6 +45,7 @@ document.addEventListener(
           ".job-title-current"
         );
         // jobTitleCurrentElement ==> sidebar elements and projects-2 element exists
+        // !jobTitleCurrentElement ==> about-me element exists
         if (jobTitleCurrentElement) {
           event.preventDefault();
           // Existing job title link to fade in
@@ -67,6 +65,23 @@ document.addEventListener(
           var animationEnd = animationEndEventName();
           animationEnd &&
             centerElement.addEventListener(
+              animationEnd,
+              function() {
+                console.log(eventElement.href);
+                window.location = eventElement.href;
+              },
+              false
+            );
+        } else {
+          event.preventDefault();
+          // Existing About Me element to fade out
+          const aboutMeElement = document.querySelector(".about-me");
+          aboutMeElement.classList.remove("fade-in");
+          aboutMeElement.classList.add("fade-out");
+          // Open next webpage once centerElement finishes its animation
+          var animationEnd = animationEndEventName();
+          animationEnd &&
+            aboutMeElement.addEventListener(
               animationEnd,
               function() {
                 console.log(eventElement.href);

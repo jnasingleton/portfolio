@@ -43,8 +43,13 @@ header {
   text-align: center;
   .name {
     font-size: 4rem;
-    padding: 1rem;
+    margin-top: 1rem;
   }
+  .icon-set {
+    font-size: 3rem;
+    margin: 0 0;
+  }
+
   .about-me-link {
     font-size: 3rem;
     padding: 1rem;
@@ -206,6 +211,17 @@ main {
   .about-me {
     text-align: center;
     //width: 100%;
+    opacity: 0;
+    &.fade-in {
+      animation: fade-in 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    }
+    &.fade-out {
+      animation: fade-out 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+    }
   }
 }
 
@@ -213,8 +229,8 @@ main {
 
 .bordered {
   //@extend .bordered;
-  //border: 3px #fff solid;
-  border-style: none;
+  border: 3px #fff solid;
+  //border-style: none;
 }
 
 // MOBILE
