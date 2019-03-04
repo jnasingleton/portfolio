@@ -25,23 +25,22 @@ function animationEndEventName() {
 document.addEventListener(
   "click",
   function(event) {
-    eventElement = event.target;
+    clickElement = event.target;
 
-    if (eventElement.matches(".project-btn-details")) {
+    if (clickElement.matches(".project-btn-details")) {
       // Toggle Visibility of Project Details
-      projectDetailsElement = eventElement.nextElementSibling;
+      projectDetailsElement = clickElement.nextElementSibling;
       projectDetailsElement.classList.toggle("displayed");
       // Toggle Icon change between Eye and Eye-Slash
-      eyeElement = eventElement.children[0];
+      eyeElement = clickElement.children[0];
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
-    } else if (eventElement.matches(".job-title")) {
+    } else if (clickElement.matches(".job-title")) {
       const jobTitleCurrentElement = document.querySelector(
         ".job-title-current"
       );
-
       // Same job-title-current clicked
-      if (eventElement.matches(".job-title-current")) {
+      if (clickElement.matches(".job-title-current")) {
         event.preventDefault();
         // New job-title clicked and currently not on about-me-title
         // ==> sidebar elements and projects-2 element exist
@@ -66,7 +65,7 @@ document.addEventListener(
           centerElement.addEventListener(
             animationEnd,
             function() {
-              window.location = eventElement.href;
+              window.location = clickElement.href;
             },
             false
           );
@@ -87,7 +86,7 @@ document.addEventListener(
           aboutMeElement.addEventListener(
             animationEnd,
             function() {
-              window.location = eventElement.href;
+              window.location = clickElement.href;
             },
             false
           );
@@ -96,3 +95,35 @@ document.addEventListener(
   },
   false
 );
+
+///*
+document.addEventListener(
+  "mouseover",
+  function(event) {
+    mouseoverElement = event.target;
+    if (mouseoverElement.matches(".tooltip-link")) {
+      const tooltipElement = document.querySelector(
+        "#" + mouseoverElement.id + "-tooltip"
+      );
+      // Toggle Visibility of Related Tooltip
+      tooltipElement.classList.toggle("displayed");
+    }
+  },
+  false
+);
+
+document.addEventListener(
+  "mouseout",
+  function(event) {
+    mouseoutElement = event.target;
+    if (mouseoutElement.matches(".tooltip-link")) {
+      const tooltipElement = document.querySelector(
+        "#" + mouseoutElement.id + "-tooltip"
+      );
+      // Toggle Visibility of Related Tooltip
+      tooltipElement.classList.toggle("displayed");
+    }
+  },
+  false
+);
+//*/

@@ -47,8 +47,20 @@ header {
 
   .icon-set {
     font-size: 1.5rem;
+    i {
+      pointer-events: none;
+    }
   }
 
+  .icon-set-tooltips {
+    .tooltip {
+      display: none;
+      font-size: 0.75rem;
+      &.displayed {
+        //display: block;
+      }
+    }
+  }
   .job-titles {
     display: flex;
     justify-content: center;
@@ -94,7 +106,7 @@ main {
 
       &-img {
         display: block;
-        max-width: 100%;
+        width: 100%;
         height: auto;
       }
 
@@ -112,6 +124,10 @@ main {
         color: #111;
         margin: 10px 0px;
         font-size: 1.5rem;
+      }
+
+      &-hidden {
+        visibility: hidden;
       }
 
       // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
@@ -155,6 +171,33 @@ main {
       width: 40vw;
       text-align: center;
 
+      /*
+
+        .about-me-container {
+    text-align: center;
+
+    .about-me {
+      display: inline-block;
+      width: 70vw;
+
+      &-topsection {
+        .about-me-welcome {
+          font-size: 2rem;
+          margin: 10px 0px;
+        }
+
+        .about-me-summary {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+      }
+
+      &-bottomsection {
+        display: inline-block;
+        text-align: left;
+
+        */
+
       &-top {
         padding-top: 0.5rem;
 
@@ -163,17 +206,24 @@ main {
         }
         #projects-description {
           font-size: 1.25rem;
+          text-align: left;
         }
       }
 
       &-bottom {
         padding-top: 0.5rem;
+        width: 80%;
+        display: inline-block;
 
         .skills {
           padding-top: 0.5rem;
 
           &-primary {
             font-size: 1.5rem;
+          }
+
+          &-secondary {
+            text-align: left;
           }
         }
       }

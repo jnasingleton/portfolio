@@ -19,15 +19,38 @@
         Jamie Singleton
       </div>
       <nav class="icon-set">
-        <a target="_blank" href="docs/Jamie_Singleton_Resume.pdf" id="resume"
+        <a
+          target="_blank"
+          href="docs/Jamie_Singleton_Resume.pdf"
+          id="resume"
+          class="tooltip-link"
           ><i class="fas fa-file"></i
         ></a>
-        <a target="_blank" href="https://github.com/jnasingleton" id="github"
+        <a
+          target="_blank"
+          href="https://github.com/jnasingleton"
+          id="github"
+          class="tooltip-link"
           ><i class="fab fa-github"></i
         ></a>
-        <a target="_blank" href="mailto:jamie@jnasingleton.com" id="email"
+        <a
+          target="_blank"
+          href="mailto:jamie@jnasingleton.com"
+          id="email"
+          class="tooltip-link"
           ><i class="fas fa-envelope"></i
         ></a>
+      </nav>
+      <nav class="icon-set-tooltips">
+        <div id="resume-tooltip" class="tooltip">
+          Click this icon to download/view my resume
+        </div>
+        <div id="github-tooltip" class="tooltip">
+          Click this icon to download/view my Github page
+        </div>
+        <div id="email-tooltip" class="tooltip">
+          Click this icon to send me an email at jamie@jnasingleton.com
+        </div>
       </nav>
       <nav class="job-titles">
         <a href="data-scientist.html" id="job-title-1" class="job-title">
@@ -52,26 +75,33 @@
           <div id="project-1" class="project">
             <img
               class="project-img"
-              src="img/projects/project1.jpg"
-              alt="Project"
+              src="img/projects/portfolio.png"
+              alt="portfolio.png"
             />
-            <a href="#" class="project-btn-github">
+            <a
+              target="_blank"
+              href="https://github.com/jnasingleton/portfolio"
+              class="project-btn-github"
+            >
               <i class="fab fa-github"></i> Github
             </a>
             <a href="javascript:void(0);" class="project-btn-details">
-              <i class="fas fa-eye"></i> Project #1
+              <i class="fas fa-eye"></i> Portfolio Website
             </a>
             <div class="project-details">
-              These Are Project Details upon click.
+              This is my Portfolio website. It's coded in HTML5/CSS3/Javascript
+              with SASS as the CSS precompiler. Currently hosted using Netlify.
+              There are a number of improvements/adjustments I am working on,
+              listed in the Github Issues.
             </div>
           </div>
-          <div id="project-2" class="project">
+          <div id="project-2" class="project project-hidden">
             <img
               src="img/projects/project2.jpg"
               class="project-img"
-              alt="Project"
+              alt="project2.jpg"
             />
-            <a href="#" class="project-btn-github">
+            <a target="_blank" href="#" class="project-btn-github">
               <i class="fab fa-github"></i> Github
             </a>
             <a href="javascript:void(0);" class="project-btn-details">
@@ -88,27 +118,33 @@
               Web Developer
             </div>
             <div id="projects-description">
-              I am a web developer... I'm interested in using web development to
-              build...
+              Web development encompasses both front-end and back-end web
+              development. <br /><br />Front-end developers create an intuitive
+              and accessible UI that meets the business needs to provide
+              information using user-friendly functionality/navigation.
+              <br /><br />Back-end developers create server side applications
+              that finds, change, and save required data and serve that data to
+              the front end code.
             </div>
           </div>
           <div class="projects-2-bottom">
             <div id="projects-what-im-using" class="skills">
               <div class="skills-primary">What I'm Using</div>
               <div class="skills-secondary">
-                HTML5 CSS SASS Javascript Postgres MySQL
+                HTML5, CSS3, Javascript, SASS, Bootstrap, NPM, ReactJS, Django,
+                Postgres, MySQL, Python, Linux, AWS EC2
               </div>
             </div>
             <div id="projects-what-im-learning" class="skills">
               <div class="skills-primary">What I'm Learning</div>
               <div class="skills-secondary">
-                React Node.js Express.js Django
+                Node.js, Express.js, React Native, d3.js, Vega
               </div>
             </div>
             <div id="projects-how-im-learning" class="skills">
               <div class="skills-primary">How I'm Learning</div>
               <div class="skills-secondary">
-                Personal Projects, Traversy Media Tutorials
+                Independant Projects, Traversy Media Projects/Tutorials
               </div>
             </div>
           </div>
@@ -116,28 +152,37 @@
         <div id="projects-3" class="projects-3 sidebar slide-in">
           <div id="project-3" class="project">
             <img
-              src="img/projects/project3.jpg"
+              src="img/projects/reactjs-tutorial.jpg"
               class="project-img"
-              alt="Project"
+              alt="reactjs-tutorial.jpg"
             />
-            <a href="#" class="project-btn-github">
+            <a
+              target="_blank"
+              href="https://github.com/jnasingleton/reactjs-tutorial"
+              class="project-btn-github"
+            >
               <i class="fab fa-github"></i> Github
             </a>
             <a class="project-btn-details">
               <i class="fas fa-eye"></i>
-              Project #3
+              ReactJS Tutorial (Tic-Tac-Toe)
             </a>
             <div class="project-details">
-              These Are Project Details upon click.
+              This is the offical ReactJS tutorial
+              (https://reactjs.org/tutorial/tutorial.html). I followed the basic
+              tutorial for creating a Tic-Tac-Toe game through the website to
+              gain an understanding of the ReactJS framework. There are few
+              improvements the tutorial leaves for the reader that I have
+              attempted in my version.
             </div>
           </div>
-          <div id="project-4" class="project">
+          <div id="project-4" class="project project-hidden">
             <img
               src="img/projects/project4.jpg"
               class="project-img"
-              alt="Project"
+              alt="project4.jpg"
             />
-            <a href="#" class="project-btn-github">
+            <a target="_blank" href="#" class="project-btn-github">
               <i class="fab fa-github"></i> Github
             </a>
             <a class="project-btn-details">

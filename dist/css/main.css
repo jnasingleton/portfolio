@@ -89,6 +89,11 @@ header {
     padding-top: 0.5rem; }
   header .icon-set {
     font-size: 1.5rem; }
+    header .icon-set i {
+      pointer-events: none; }
+  header .icon-set-tooltips .tooltip {
+    display: none;
+    font-size: 0.75rem; }
   header .job-titles {
     display: flex;
     justify-content: center;
@@ -119,7 +124,7 @@ main {
       margin-bottom: 0.5rem; }
       main .projects .project-img {
         display: block;
-        max-width: 100%;
+        width: 100%;
         height: auto; }
       main .projects .project-btn-github {
         background: black;
@@ -131,6 +136,8 @@ main {
         color: #111;
         margin: 10px 0px;
         font-size: 1.5rem; }
+      main .projects .project-hidden {
+        visibility: hidden; }
       main .projects .project-btn-details > * {
         pointer-events: none; }
       main .projects .project-details {
@@ -153,19 +160,50 @@ main {
       animation-timing-function: ease-in; }
     main .projects-2 {
       width: 40vw;
-      text-align: center; }
+      text-align: center;
+      /*
+
+        .about-me-container {
+    text-align: center;
+
+    .about-me {
+      display: inline-block;
+      width: 70vw;
+
+      &-topsection {
+        .about-me-welcome {
+          font-size: 2rem;
+          margin: 10px 0px;
+        }
+
+        .about-me-summary {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+      }
+
+      &-bottomsection {
+        display: inline-block;
+        text-align: left;
+
+        */ }
       main .projects-2-top {
         padding-top: 0.5rem; }
         main .projects-2-top #projects-title {
           font-size: 2rem; }
         main .projects-2-top #projects-description {
-          font-size: 1.25rem; }
+          font-size: 1.25rem;
+          text-align: left; }
       main .projects-2-bottom {
-        padding-top: 0.5rem; }
+        padding-top: 0.5rem;
+        width: 80%;
+        display: inline-block; }
         main .projects-2-bottom .skills {
           padding-top: 0.5rem; }
           main .projects-2-bottom .skills-primary {
             font-size: 1.5rem; }
+          main .projects-2-bottom .skills-secondary {
+            text-align: left; }
       main .projects-2.fade-in {
         animation: fade-in 2s;
         animation-fill-mode: forwards;
