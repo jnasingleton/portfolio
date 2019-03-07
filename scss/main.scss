@@ -80,7 +80,7 @@ header {
 
     .job-title {
       font-size: 1.5rem;
-      width: 15vw;
+      width: 20vw;
 
       &#about-me-title {
         font-size: 2rem;
@@ -120,9 +120,6 @@ main {
         height: auto;
       }
 
-      &-top {
-      }
-
       &-middle {
         font-size: 1.5rem;
         display: flex;
@@ -153,7 +150,7 @@ main {
       }
 
       &-hidden {
-        visibility: hidden;
+        display: none;
       }
 
       &-bottom {

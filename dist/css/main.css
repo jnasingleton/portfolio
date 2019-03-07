@@ -117,7 +117,7 @@ header {
     border-bottom: 0.25rem #fff solid; }
     header .job-titles .job-title {
       font-size: 1.5rem;
-      width: 15vw; }
+      width: 20vw; }
       header .job-titles .job-title#about-me-title {
         font-size: 2rem;
         justify-content: baseline; }
@@ -156,7 +156,7 @@ main {
         main .projects .project-middle .project-details {
           display: block; }
       main .projects .project-hidden {
-        visibility: hidden; }
+        display: none; }
       main .projects .project-bottom {
         background: #dddddd;
         color: #111;
@@ -246,61 +246,30 @@ main {
 
 @media screen and (min-width: 1171px) {
   /*
-  .projects {
-    grid-template-columns: repeat(4, 1fr);
-  }
   */ }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   /*
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  //s
   */ }
 
 @media screen and (max-width: 768px) {
-  main {
+  * {
+    overflow: visible; }
+  header .job-titles {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center; }
-    main .lg-heading {
-      line-height: 1;
-      margin-bottom: 1rem; }
-  ul.menu-nav,
-  div.menu-branding {
-    float: none;
-    width: 100%;
-    min-height: 0; }
-    ul.menu-nav.show,
-    div.menu-branding.show {
-      transform: translate3d(0, 0, 0); }
-  .menu-nav {
-    height: 75vh;
-    transform: translate3d(-100%, 0, 0);
-    font-size: 24px; }
-  .menu-branding {
-    height: 25vh;
-    transform: translate3d(100%, 0, 0); }
-    .menu-branding .portrait {
-      background: url("../img/portrait_small.jpg");
-      width: 150px;
-      height: 150px; }
-  /*
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  */ }
+    padding-bottom: 0.5rem;
+    border-bottom: 0.25rem #fff solid; }
+    header .job-titles .job-title {
+      font-size: 1.5rem;
+      width: 100vw; }
+  main .projects {
+    flex-direction: column;
+    align-items: center; }
+    main .projects-1, main .projects-2, main .projects-3 {
+      width: 80vw; } }
 
 @media screen and (max-width: 500px) {
-  main {
-    padding: 2rem; }
-    main #home h1 {
-      margin-top: 10vh; }
-    main .lg-heading {
-      margin-top: 1rem;
-      font-size: 5rem; }
   /*
-  .projects {
-    grid-template-columns: 1fr;
-  }
   */ }
