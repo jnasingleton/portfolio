@@ -29,7 +29,7 @@ document.addEventListener(
 
     if (clickElement.matches(".project-btn-details")) {
       // Toggle Visibility of Project Details
-      projectDetailsElement = clickElement.nextElementSibling;
+      projectDetailsElement = clickElement.parentNode.nextElementSibling;
       projectDetailsElement.classList.toggle("displayed");
       // Toggle Icon change between Eye and Eye-Slash
       eyeElement = clickElement.children[0];

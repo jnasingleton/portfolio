@@ -3,6 +3,7 @@
 
 * {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 a {
@@ -17,7 +18,6 @@ a {
 .btn {
   display: block;
   padding: 0.5rem 1rem;
-  margin: 10px 0px;
   &:hover {
     background: $secondary-color;
     color: set-text-color($secondary-color);
@@ -110,33 +110,43 @@ main {
         height: auto;
       }
 
-      &-btn-github {
-        @extend .btn;
-        background: darken($primary-color, 60);
-        color: #fff;
-        margin: 10px 0px;
-        font-size: 1.5rem;
+      &-top {
       }
 
-      &-btn-details {
-        @extend .btn;
-        background: lighten($primary-color, 60);
-        color: #111;
-        margin: 10px 0px;
+      &-middle {
         font-size: 1.5rem;
+        display: flex;
+
+        .project-btn-github {
+          @extend .btn;
+          background: darken($primary-color, 60);
+          color: #fff;
+          //margin-right: -2px;
+        }
+
+        .project-btn-details {
+          @extend .btn;
+          background: lighten($primary-color, 60);
+          color: #111;
+          flex-grow: 100;
+        }
+
+        // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+        // Ensures that a click anywhere on the element will fire events
+        .project-btn-details > * {
+          pointer-events: none;
+        }
+
+        .project-details {
+          display: block;
+        }
       }
 
       &-hidden {
         visibility: hidden;
       }
 
-      // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
-      // Ensures that a click anywhere on the element will fire events
-      &-btn-details > * {
-        pointer-events: none;
-      }
-
-      &-details {
+      &-bottom {
         background: lighten($primary-color, 60);
         color: #111;
         display: none;
@@ -170,33 +180,6 @@ main {
     &-2 {
       width: 40vw;
       text-align: center;
-
-      /*
-
-        .about-me-container {
-    text-align: center;
-
-    .about-me {
-      display: inline-block;
-      width: 70vw;
-
-      &-topsection {
-        .about-me-welcome {
-          font-size: 2rem;
-          margin: 10px 0px;
-        }
-
-        .about-me-summary {
-          font-size: 1.5rem;
-          margin-bottom: 10px;
-        }
-      }
-
-      &-bottomsection {
-        display: inline-block;
-        text-align: left;
-
-        */
 
       &-top {
         padding-top: 0.5rem;

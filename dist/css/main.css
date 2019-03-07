@@ -57,7 +57,8 @@
     opacity: 0; } }
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: hidden; }
 
 a {
   text-decoration: none;
@@ -66,11 +67,10 @@ a {
 .text-secondary {
   color: #eece1a; }
 
-.btn, main .projects .project-btn-github, main .projects .project-btn-details {
+.btn, main .projects .project-middle .project-btn-github, main .projects .project-middle .project-btn-details {
   display: block;
-  padding: 0.5rem 1rem;
-  margin: 10px 0px; }
-  .btn:hover, main .projects .project-btn-github:hover, main .projects .project-btn-details:hover {
+  padding: 0.5rem 1rem; }
+  .btn:hover, main .projects .project-middle .project-btn-github:hover, main .projects .project-middle .project-btn-details:hover {
     background: #eece1a;
     color: #000; }
 
@@ -126,25 +126,27 @@ main {
         display: block;
         width: 100%;
         height: auto; }
-      main .projects .project-btn-github {
-        background: black;
-        color: #fff;
-        margin: 10px 0px;
-        font-size: 1.5rem; }
-      main .projects .project-btn-details {
-        background: #dddddd;
-        color: #111;
-        margin: 10px 0px;
-        font-size: 1.5rem; }
+      main .projects .project-middle {
+        font-size: 1.5rem;
+        display: flex; }
+        main .projects .project-middle .project-btn-github {
+          background: black;
+          color: #fff; }
+        main .projects .project-middle .project-btn-details {
+          background: #dddddd;
+          color: #111;
+          flex-grow: 100; }
+        main .projects .project-middle .project-btn-details > * {
+          pointer-events: none; }
+        main .projects .project-middle .project-details {
+          display: block; }
       main .projects .project-hidden {
         visibility: hidden; }
-      main .projects .project-btn-details > * {
-        pointer-events: none; }
-      main .projects .project-details {
+      main .projects .project-bottom {
         background: #dddddd;
         color: #111;
         display: none; }
-        main .projects .project-details.displayed {
+        main .projects .project-bottom.displayed {
           display: block; }
     main .projects-1, main .projects-3 {
       display: flex;
@@ -160,33 +162,7 @@ main {
       animation-timing-function: ease-in; }
     main .projects-2 {
       width: 40vw;
-      text-align: center;
-      /*
-
-        .about-me-container {
-    text-align: center;
-
-    .about-me {
-      display: inline-block;
-      width: 70vw;
-
-      &-topsection {
-        .about-me-welcome {
-          font-size: 2rem;
-          margin: 10px 0px;
-        }
-
-        .about-me-summary {
-          font-size: 1.5rem;
-          margin-bottom: 10px;
-        }
-      }
-
-      &-bottomsection {
-        display: inline-block;
-        text-align: left;
-
-        */ }
+      text-align: center; }
       main .projects-2-top {
         padding-top: 0.5rem; }
         main .projects-2-top #projects-title {
