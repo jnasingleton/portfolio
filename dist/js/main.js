@@ -106,7 +106,7 @@ document.addEventListener(
         "#" + mouseoverElement.id + "-tooltip"
       );
       // Toggle Visibility of Related Tooltip
-      tooltipElement.classList.toggle("displayed");
+      tooltipElement.classList.add("fade-in");
     }
   },
   false
@@ -121,7 +121,7 @@ document.addEventListener(
         "#" + mouseoutElement.id + "-tooltip"
       );
       // Toggle Visibility of Related Tooltip
-      tooltipElement.classList.toggle("displayed");
+      tooltipElement.classList.remove("fade-in");
     }
   },
   false

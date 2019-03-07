@@ -18,7 +18,13 @@
   100% {
     opacity: 1; } }
 
-@keyframes fade-out {
+@keyframes fade-in-simple {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-out-simple {
   0% {
     opacity: 1; }
   100% {
@@ -91,9 +97,18 @@ header {
     font-size: 1.5rem; }
     header .icon-set i {
       pointer-events: none; }
+    header .icon-set .tooltip-link:hover {
+      animation: fade-out-partial 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out; }
   header .icon-set-tooltips .tooltip {
     display: none;
     font-size: 0.75rem; }
+    header .icon-set-tooltips .tooltip.fade-in {
+      display: block;
+      animation: fade-in-simple 1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in; }
   header .job-titles {
     display: flex;
     justify-content: center;
@@ -185,7 +200,7 @@ main {
         animation-fill-mode: forwards;
         animation-timing-function: ease-out; }
       main .projects-2.fade-out {
-        animation: fade-out 1s;
+        animation: fade-out-simple 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in; }
     main .projects-3.slide-in {
@@ -217,13 +232,15 @@ main {
         main .about-me-container .about-me-bottomsection ul {
           margin-bottom: 10px; }
         main .about-me-container .about-me-bottomsection li {
-          margin-bottom: 5px; }
+          margin-left: 20px;
+          margin-bottom: 5px;
+          overflow: visible; }
       main .about-me-container .about-me.fade-in {
         animation: fade-in 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-out; }
       main .about-me-container .about-me.fade-out {
-        animation: fade-out 1s;
+        animation: fade-out-simple 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in; }
 

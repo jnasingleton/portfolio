@@ -50,14 +50,24 @@ header {
     i {
       pointer-events: none;
     }
+    .tooltip-link {
+      &:hover {
+        animation: fade-out-partial 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
+      }
+    }
   }
 
   .icon-set-tooltips {
     .tooltip {
       display: none;
       font-size: 0.75rem;
-      &.displayed {
-        //display: block;
+      &.fade-in {
+        display: block;
+        animation: fade-in-simple 1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
       }
     }
   }
@@ -218,7 +228,7 @@ main {
       }
 
       &.fade-out {
-        animation: fade-out 1s;
+        animation: fade-out-simple 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in;
       }
@@ -274,7 +284,10 @@ main {
         }
 
         li {
+          margin-left: 20px;
           margin-bottom: 5px;
+          // Required, to show leading * markers
+          overflow: visible;
         }
       }
 
@@ -285,7 +298,7 @@ main {
       }
 
       &.fade-out {
-        animation: fade-out 1s;
+        animation: fade-out-simple 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in;
       }
