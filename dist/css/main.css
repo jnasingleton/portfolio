@@ -93,18 +93,18 @@ header {
   header .name {
     font-size: 3rem;
     padding-top: 0.5rem; }
-  header .icon-set {
+  header .tooltip-links {
     font-size: 1.5rem; }
-    header .icon-set i {
+    header .tooltip-links i {
       pointer-events: none; }
-    header .icon-set .tooltip-link:hover {
+    header .tooltip-links .tooltip-link:hover {
       animation: fade-out-partial 1s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-out; }
-  header .icon-set-tooltips .tooltip {
+  header .tooltips .tooltip {
     display: none;
     font-size: 0.75rem; }
-    header .icon-set-tooltips .tooltip.fade-in {
+    header .tooltips .tooltip.fade-in {
       display: block;
       animation: fade-in-simple 1s;
       animation-fill-mode: forwards;

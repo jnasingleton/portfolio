@@ -102,11 +102,23 @@ document.addEventListener(
   function(event) {
     mouseoverElement = event.target;
     if (mouseoverElement.matches(".tooltip-link")) {
-      const tooltipElement = document.querySelector(
-        "#" + mouseoverElement.id + "-tooltip"
-      );
+      const tooltipType = mouseoverElement.id.split("-").pop();
+      tooltipElement = document.querySelector("#tooltip");
       // Toggle Visibility of Related Tooltip
       tooltipElement.classList.add("fade-in");
+      // Add Text
+      if (tooltipType == "resume") {
+        var tooltipText = "Click this icon to download/view my resume";
+      } else if (tooltipType == "github") {
+        var tooltipText = "Click this icon to view my Github page";
+      } else if (tooltipType == "email") {
+        var tooltipText =
+          "Click this icon to send me an email at jamie@jnasingleton.com";
+      } else {
+        var tooltipText = "";
+      }
+
+      tooltipElement.innerHTML = tooltipText;
     }
   },
   false
@@ -117,11 +129,12 @@ document.addEventListener(
   function(event) {
     mouseoutElement = event.target;
     if (mouseoutElement.matches(".tooltip-link")) {
-      const tooltipElement = document.querySelector(
-        "#" + mouseoutElement.id + "-tooltip"
-      );
+      const tooltipType = mouseoutElement.id.split("-").pop();
+      tooltipElement = document.querySelector("#tooltip");
       // Toggle Visibility of Related Tooltip
       tooltipElement.classList.remove("fade-in");
+      // Remove Text
+      tooltipElement.innerHTML = "";
     }
   },
   false
