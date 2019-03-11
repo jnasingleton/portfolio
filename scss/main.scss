@@ -39,7 +39,7 @@ body {
 // HEADER
 header {
   text-align: center;
-
+  background-color: darken($primary-color, 5);
   .name {
     font-size: 3rem;
     padding-top: 0.5rem;
@@ -123,12 +123,19 @@ main {
       &-middle {
         font-size: 1.5rem;
         display: flex;
+        flex-direction: row;
 
         .project-btn-github {
           @extend .btn;
           background: darken($primary-color, 60);
           color: #fff;
+          flex-shrink: 5;
           //margin-right: -2px;
+          display: table-cell;
+          min-width: 55px;
+          i {
+            vertical-align: middle;
+          }
         }
 
         .project-btn-details {
@@ -136,6 +143,12 @@ main {
           background: lighten($primary-color, 60);
           color: #111;
           flex-grow: 100;
+          display: table-cell;
+          i {
+            vertical-align: middle;
+            padding-right: 2%;
+          }
+          text-decoration: underline;
         }
 
         // https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
@@ -202,18 +215,22 @@ main {
 
       &-bottom {
         padding-top: 0.5rem;
-        width: 80%;
-        display: inline-block;
+        width: 100%;
+        //display: inline-block;
 
         .skills {
           padding-top: 0.5rem;
 
           &-primary {
             font-size: 1.5rem;
+            margin-top: 10px;
           }
 
           &-secondary {
-            text-align: left;
+            //text-align: left;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
           }
         }
       }
@@ -283,8 +300,7 @@ main {
         li {
           margin-left: 20px;
           margin-bottom: 5px;
-          // Required, to show leading * markers
-          overflow: visible;
+          list-style-type: none;
         }
       }
 

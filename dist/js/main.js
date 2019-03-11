@@ -117,7 +117,6 @@ document.addEventListener(
       } else {
         var tooltipText = "";
       }
-
       tooltipElement.innerHTML = tooltipText;
     }
   },

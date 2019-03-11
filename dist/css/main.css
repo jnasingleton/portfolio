@@ -89,7 +89,8 @@ body {
   line-height: 1.5; }
 
 header {
-  text-align: center; }
+  text-align: center;
+  background-color: #373737; }
   header .name {
     font-size: 3rem;
     padding-top: 0.5rem; }
@@ -143,14 +144,25 @@ main {
         height: auto; }
       main .projects .project-middle {
         font-size: 1.5rem;
-        display: flex; }
+        display: flex;
+        flex-direction: row; }
         main .projects .project-middle .project-btn-github {
           background: black;
-          color: #fff; }
+          color: #fff;
+          flex-shrink: 5;
+          display: table-cell;
+          min-width: 55px; }
+          main .projects .project-middle .project-btn-github i {
+            vertical-align: middle; }
         main .projects .project-middle .project-btn-details {
           background: #dddddd;
           color: #111;
-          flex-grow: 100; }
+          flex-grow: 100;
+          display: table-cell;
+          text-decoration: underline; }
+          main .projects .project-middle .project-btn-details i {
+            vertical-align: middle;
+            padding-right: 2%; }
         main .projects .project-middle .project-btn-details > * {
           pointer-events: none; }
         main .projects .project-middle .project-details {
@@ -187,14 +199,16 @@ main {
           text-align: left; }
       main .projects-2-bottom {
         padding-top: 0.5rem;
-        width: 80%;
-        display: inline-block; }
+        width: 100%; }
         main .projects-2-bottom .skills {
           padding-top: 0.5rem; }
           main .projects-2-bottom .skills-primary {
-            font-size: 1.5rem; }
+            font-size: 1.5rem;
+            margin-top: 10px; }
           main .projects-2-bottom .skills-secondary {
-            text-align: left; }
+            list-style-type: none;
+            padding: 0;
+            margin: 0; }
       main .projects-2.fade-in {
         animation: fade-in 2s;
         animation-fill-mode: forwards;
@@ -234,7 +248,7 @@ main {
         main .about-me-container .about-me-bottomsection li {
           margin-left: 20px;
           margin-bottom: 5px;
-          overflow: visible; }
+          list-style-type: none; }
       main .about-me-container .about-me.fade-in {
         animation: fade-in 1s;
         animation-fill-mode: forwards;
