@@ -91,42 +91,42 @@ body {
 header {
   text-align: center;
   background-color: #373737; }
-  header .name {
+  header #name {
     font-size: 3rem;
     padding-top: 0.5rem; }
-  header .tooltip-links {
+  header #tooltip-links {
     font-size: 1.5rem; }
-    header .tooltip-links i {
+    header #tooltip-links i {
       pointer-events: none; }
-    header .tooltip-links .tooltip-link:hover {
+    header #tooltip-links .tooltip-link:hover {
       animation: fade-out-partial 1s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-out; }
-  header .tooltips .tooltip {
+  header #tooltips .tooltip {
     display: none;
     font-size: 0.75rem; }
-    header .tooltips .tooltip.fade-in {
+    header #tooltips .tooltip.fade-in {
       display: block;
       animation: fade-in-simple 1s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in; }
-  header .job-titles {
+  header #job-titles {
     display: flex;
     justify-content: center;
     align-items: baseline;
     padding-bottom: 0.5rem;
     border-bottom: 0.25rem #fff solid; }
-    header .job-titles .job-title {
+    header #job-titles .job-title {
       font-size: 1.5rem;
       width: 20vw; }
-      header .job-titles .job-title#about-me-title {
+      header #job-titles .job-title#about-me-title {
         font-size: 2rem;
         justify-content: baseline; }
-      header .job-titles .job-title.job-title-current {
+      header #job-titles .job-title.job-title-current {
         animation: fade-out-partial 2s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-out; }
-      header .job-titles .job-title.fade-in-partial {
+      header #job-titles .job-title.fade-in-partial {
         animation: fade-in-partial 1s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in; }

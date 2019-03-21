@@ -40,12 +40,12 @@ body {
 header {
   text-align: center;
   background-color: darken($primary-color, 5);
-  .name {
+  #name {
     font-size: 3rem;
     padding-top: 0.5rem;
   }
 
-  .tooltip-links {
+  #tooltip-links {
     font-size: 1.5rem;
     i {
       pointer-events: none;
@@ -59,7 +59,7 @@ header {
     }
   }
 
-  .tooltips {
+  #tooltips {
     .tooltip {
       display: none;
       font-size: 0.75rem;
@@ -71,7 +71,7 @@ header {
       }
     }
   }
-  .job-titles {
+  #job-titles {
     display: flex;
     justify-content: center;
     align-items: baseline;

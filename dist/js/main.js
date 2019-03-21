@@ -1,9 +1,5 @@
-function changeWindowLocation(href) {
-  console.log(href);
-  window.location = href;
-}
 function animationEndEventName() {
-  var i,
+  let i,
     undefined,
     el = document.createElement("div"),
     animations = {
@@ -36,54 +32,37 @@ document.addEventListener(
       eyeElement.classList.toggle("fa-eye");
       eyeElement.classList.toggle("fa-eye-slash");
     } else if (clickElement.matches(".job-title")) {
+      event.preventDefault();
       const jobTitleCurrentElement = document.querySelector(
         ".job-title-current"
       );
-      // Same job-title-current clicked
-      if (clickElement.matches(".job-title-current")) {
-        event.preventDefault();
-        // New job-title clicked and currently not on about-me-title
-        // ==> sidebar elements and projects-2 element exist
-      } else if (!jobTitleCurrentElement.matches("#about-me-title")) {
-        event.preventDefault();
+      if (!clickElement.matches(".job-title-current")) {
+        // New job-title clicked
         // Existing job title link to fade in
         jobTitleCurrentElement.classList.remove("job-title-current");
         jobTitleCurrentElement.classList.add("fade-in-partial");
-        // Existing sidebars to slide out
-        const sidebarElements = document.querySelectorAll(".sidebar");
-        sidebarElements.forEach(e => {
-          e.classList.remove("slide-in");
-          e.classList.add("slide-out");
-        });
-        // Existing center element to fade out
-        const centerElement = document.querySelector(".projects-2");
+        // Define centerElement
+        let centerElement = {};
+        if (!jobTitleCurrentElement.matches("#about-me-title")) {
+          // Set centerElement
+          centerElement = document.querySelector(".projects-2");
+          // Existing sidebars to slide out
+          const sidebarElements = document.querySelectorAll(".sidebar");
+          sidebarElements.forEach(e => {
+            e.classList.remove("slide-in");
+            e.classList.add("slide-out");
+          });
+        } else if (jobTitleCurrentElement.matches("#about-me-title")) {
+          // Set centerElement
+          centerElement = document.querySelector(".about-me");
+        }
+        // centerElement to fade out
         centerElement.classList.remove("fade-in");
         centerElement.classList.add("fade-out");
         // Open next webpage once centerElement finishes its animation
-        var animationEnd = animationEndEventName();
+        let animationEnd = animationEndEventName();
         animationEnd &&
           centerElement.addEventListener(
-            animationEnd,
-            function() {
-              window.location = clickElement.href;
-            },
-            false
-          );
-      } else if (jobTitleCurrentElement.matches("#about-me-title")) {
-        // New job-title clicked and currently on about-me-title
-        // ==> center element exists
-        event.preventDefault();
-        // Existing job title link to fade in
-        jobTitleCurrentElement.classList.remove("job-title-current");
-        jobTitleCurrentElement.classList.add("fade-in-partial");
-        // Existing About Me element to fade out
-        const aboutMeElement = document.querySelector(".about-me");
-        aboutMeElement.classList.remove("fade-in");
-        aboutMeElement.classList.add("fade-out");
-        // Open next webpage once centerElement finishes its animation
-        var animationEnd = animationEndEventName();
-        animationEnd &&
-          aboutMeElement.addEventListener(
             animationEnd,
             function() {
               window.location = clickElement.href;
@@ -96,28 +75,33 @@ document.addEventListener(
   false
 );
 
-///*
 document.addEventListener(
   "mouseover",
   function(event) {
     mouseoverElement = event.target;
+
     if (mouseoverElement.matches(".tooltip-link")) {
-      const tooltipType = mouseoverElement.id.split("-").pop();
       tooltipElement = document.querySelector("#tooltip");
       // Toggle Visibility of Related Tooltip
       tooltipElement.classList.add("fade-in");
       // Add Text
-      if (tooltipType == "resume") {
-        var tooltipText = "Click this icon to download/view my resume";
-      } else if (tooltipType == "github") {
-        var tooltipText = "Click this icon to view my Github page";
-      } else if (tooltipType == "email") {
-        var tooltipText =
-          "Click this icon to send me an email at jamie@jnasingleton.com";
-      } else {
-        var tooltipText = "";
+      const tooltipType = mouseoverElement.id.split("-").pop();
+      var tooltipText = "Click this icon to ";
+      switch (tooltipType) {
+        case "resume":
+          tooltipText += "download/view my resume";
+          break;
+        case "github":
+          tooltipText += "view my Github page";
+          break;
+        case "email":
+          tooltipText += "send me an email at jamie@jnasingleton.com";
+          break;
+        default:
+          tooltipText = "";
+          break;
       }
-      tooltipElement.innerHTML = tooltipText;
+      tooltipElement.innerText = tooltipText;
     }
   },
   false
@@ -127,15 +111,14 @@ document.addEventListener(
   "mouseout",
   function(event) {
     mouseoutElement = event.target;
+
     if (mouseoutElement.matches(".tooltip-link")) {
-      const tooltipType = mouseoutElement.id.split("-").pop();
       tooltipElement = document.querySelector("#tooltip");
       // Toggle Visibility of Related Tooltip
       tooltipElement.classList.remove("fade-in");
       // Remove Text
-      tooltipElement.innerHTML = "";
+      tooltipElement.innerText = "";
     }
   },
   false
 );
-//*/
