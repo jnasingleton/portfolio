@@ -129,7 +129,20 @@ main {
           @extend .btn;
           background: darken($primary-color, 60);
           color: #fff;
-          flex-shrink: 5;
+          //flex-shrink: 5;
+          //margin-right: -2px;
+          display: table-cell;
+          min-width: 55px;
+          i {
+            vertical-align: middle;
+          }
+        }
+
+        .project-btn-sample {
+          @extend .btn;
+          background: $primary-color;
+          color: #fff;
+          //flex-shrink: 5;
           //margin-right: -2px;
           display: table-cell;
           min-width: 55px;

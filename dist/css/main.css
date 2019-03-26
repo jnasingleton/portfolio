@@ -73,10 +73,10 @@ a {
 .text-secondary {
   color: #eece1a; }
 
-.btn, main .projects .project-middle .project-btn-github, main .projects .project-middle .project-btn-details {
+.btn, main .projects .project-middle .project-btn-github, main .projects .project-middle .project-btn-sample, main .projects .project-middle .project-btn-details {
   display: block;
   padding: 0.5rem 1rem; }
-  .btn:hover, main .projects .project-middle .project-btn-github:hover, main .projects .project-middle .project-btn-details:hover {
+  .btn:hover, main .projects .project-middle .project-btn-github:hover, main .projects .project-middle .project-btn-sample:hover, main .projects .project-middle .project-btn-details:hover {
     background: #eece1a;
     color: #000; }
 
@@ -149,10 +149,16 @@ main {
         main .projects .project-middle .project-btn-github {
           background: black;
           color: #fff;
-          flex-shrink: 5;
           display: table-cell;
           min-width: 55px; }
           main .projects .project-middle .project-btn-github i {
+            vertical-align: middle; }
+        main .projects .project-middle .project-btn-sample {
+          background: #444;
+          color: #fff;
+          display: table-cell;
+          min-width: 55px; }
+          main .projects .project-middle .project-btn-sample i {
             vertical-align: middle; }
         main .projects .project-middle .project-btn-details {
           background: #dddddd;
